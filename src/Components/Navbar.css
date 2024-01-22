@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+
+}
+@media only screen and (max-width: 767px) {
+    /* Your mobile styles go here */
+    h1{
+        padding: 5px;
+        font-size: 20px;
+    }
+
+  }
+  @media only screen and (min-width: 768px) {
+    /* Your tablet and larger screen styles go here */
+    h1{
+        /* padding: 5px; */
+        font-size: 30px;
+    }
+  }
