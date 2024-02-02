@@ -5,7 +5,7 @@ export default function Main(props) {
 let total = 0;
   const Ans = props.ans.map((item) => {
     total = total + parseFloat(item.price);
-    return <Expense key = {key++} name={item.name} price={parseFloat(item.price)} />;
+    return <Expense key = {key++} name={item.name} price={parseFloat(item.price)} id = {item.id} remove={props.erase} />;
   });
   return (<>
   <div className='container bg-white'>

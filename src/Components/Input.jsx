@@ -5,14 +5,28 @@ export default function Input() {
   const [arr, setArr] = useState([]);
   const [priceInput, setPriceInput] = useState("");
   const [nameInput, setNameInput] = useState("");
+  const [id, setId] = useState(0);
 
   function handleClick(e) {
     e.preventDefault();
     if (nameInput && priceInput) {
-      setArr((items) => [...items, { name: nameInput, price: priceInput }]);
+      setId(prevId => prevId + 1);
+      setArr((items) => {
+        return [...items, { name: nameInput, price: priceInput, id: id }];
+      });
       setNameInput("");
       setPriceInput("");
     }
+  }
+  
+  
+  function eraseComponent(id) {
+   console.log("Deleting item with ID:", id);
+    setArr(prevState => {
+      const newArr = prevState.filter(item => item.id !== id);
+
+      return newArr; 
+    });
   }
   return (
     <>
@@ -40,7 +54,10 @@ export default function Input() {
           Enter
         </button>
       </form>
-      <Main ans={arr}/>
+      <Main 
+      ans={arr}
+      erase = {eraseComponent}
+      />
     </>
   );
 }
